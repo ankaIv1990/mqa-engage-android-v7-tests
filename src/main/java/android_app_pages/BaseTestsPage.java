@@ -20,6 +20,22 @@ public class BaseTestsPage extends MobileTestBase {
     WebElement buttonSetAlias;
     @AndroidFindBy(id = "com.appoxee.example:id/btnGetAlias")
     WebElement buttonGetAlias;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnGetDevice")
+    WebElement buttonGetDevice;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnGetFbToken")
+    WebElement buttonGetFirebaseToken;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnFetchInboxMessages")
+    WebElement buttonFetchInboxMessages;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnFetchInappMessages")
+    WebElement buttonFetchInAppMessages;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnSetCustomAttributes")
+    WebElement buttonSetCustomAttributes;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnGetCustomAttributes")
+    WebElement buttonGetCustomAttributes;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnStartGeofencing")
+    WebElement buttonStartGeofencing;
+    @AndroidFindBy (id = "com.appoxee.example:id/btnStopGeofencing")
+    WebElement buttonStopGeofencing;
 
 
     //Methods
@@ -32,9 +48,34 @@ public class BaseTestsPage extends MobileTestBase {
     public void clickSetAlias(){
         buttonSetAlias.click();
     }
-    public void clickGetAlias() throws InterruptedException {
+    public void clickGetAlias(){
         buttonGetAlias.click();
     }
+    public void clickGetDevice(){
+        buttonGetDevice.click();
+    }
+    public void clickGetFirebaseToken(){
+        buttonGetFirebaseToken.click();
+    }
+    public void clickFetchInboxMessages(){
+        buttonFetchInboxMessages.click();
+    }
+    public void clickFetchInAppMessages(){
+        buttonFetchInAppMessages.click();
+    }
+    public void textSetCustomAttributes(){
+        buttonSetCustomAttributes.click();
+    }
+    public void clickGetCustomAttributes(){
+        buttonGetCustomAttributes.click();
+    }
+    public void clickStartGeofencing(){
+        buttonStartGeofencing.click();
+    }
+    public void clickStopGeofencing(){
+        buttonStopGeofencing.click();
+    }
+
     public static int randomNumber(){
         Random random = new Random();
         int randomNumber = random.nextInt(10000);
