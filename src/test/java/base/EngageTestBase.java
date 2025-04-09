@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class EngageTestBase {
 
@@ -20,9 +21,9 @@ public class EngageTestBase {
 
     public void loadPropertiesFile() {
 
-        url = String.valueOf(LocalProperties.getBaseUrl());
-        username = String.valueOf(LocalProperties.getUsername());
-        password = String.valueOf(LocalProperties.getPassword());
+        url = LocalProperties.getBaseUrl();
+        username = LocalProperties.getUsername();
+        password = LocalProperties.getPassword();
         system = "mac";
         browser = "chrome";
 
@@ -41,6 +42,9 @@ public class EngageTestBase {
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
+                    // Set Firefox binary location
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.setBinary("/Applications/Firefox");
                     this.driver = new FirefoxDriver();
                     break;
                 case "edge":
@@ -52,9 +56,9 @@ public class EngageTestBase {
             driver.manage().window().maximize();
             driver.get(url);
 
-            driver.findElement(By.xpath("//*[@id='username']")).sendKeys(username);
-            driver.findElement(By.xpath("//*[@id='password']")).sendKeys(password);
-            driver.findElement(By.xpath("//*[@id='login-button']")).click();
+            driver.findElement(By.id("loginUsername")).sendKeys(username);
+            driver.findElement(By.id("loginPassword")).sendKeys(password);
+            driver.findElement(By.cssSelector("#gotoStartPage > button")).click();
         }
         catch(Exception e){
             System.out.println("Failed to load properties file.");
