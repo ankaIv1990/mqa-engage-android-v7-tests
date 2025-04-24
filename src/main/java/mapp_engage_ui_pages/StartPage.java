@@ -14,8 +14,6 @@ public class StartPage extends WebTestBase {
 
     @FindBy(css = "#topNavElement")
     WebElement shadowRootNavigation;
-    @FindBy(xpath = "//*[@id=\"2-nav-msg-push\"]")
-    WebElement buttonPushNotifications;
 
     public void goToPushNotificationsPage() throws InterruptedException {
         SearchContext navMessages = shadowRootNavigation.getShadowRoot();
