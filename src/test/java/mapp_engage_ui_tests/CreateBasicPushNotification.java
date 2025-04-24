@@ -8,7 +8,7 @@ public class CreateBasicPushNotification extends EngageTestBase {
     StartPage startPage;
 
     @Test
-    public void createPushNotification(){
+    public void createPushNotification() throws InterruptedException {
         startPage = new StartPage(driver);
         startPage.goToPushNotificationsPage();
     }

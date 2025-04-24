@@ -1,5 +1,7 @@
 package mapp_engage_ui_pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +12,18 @@ public class StartPage extends WebTestBase {
         super(driver);
     }
 
-    @FindBy(css = "#nav-messages > span.mdc-button__label > span:nth-child(1)")
-    WebElement buttonMessages;
+    @FindBy(css = "#topNavElement")
+    WebElement shadowRootNavigation;
     @FindBy(xpath = "//*[@id=\"2-nav-msg-push\"]")
     WebElement buttonPushNotifications;
 
-    public void goToPushNotificationsPage(){
-        buttonMessages.click();
-        buttonPushNotifications.click();
+    public void goToPushNotificationsPage() throws InterruptedException {
+        SearchContext navMessages = shadowRootNavigation.getShadowRoot();
+        navMessages.findElement(By.cssSelector("#nav-messages")).click();
+
+        Thread.sleep(3000);
+
+        SearchContext pushNotifications = shadowRootNavigation.getShadowRoot();
+        pushNotifications.findElement(By.cssSelector("#\\32 -nav-msg-push")).click();
     }
 }

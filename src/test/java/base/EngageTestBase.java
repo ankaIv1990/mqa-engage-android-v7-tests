@@ -59,6 +59,7 @@ public class EngageTestBase {
             driver.findElement(By.id("loginUsername")).sendKeys(username);
             driver.findElement(By.id("loginPassword")).sendKeys(password);
             driver.findElement(By.cssSelector("#gotoStartPage > button")).click();
+            Thread.sleep(5000);
         }
         catch(Exception e){
             System.out.println("Failed to load properties file.");
